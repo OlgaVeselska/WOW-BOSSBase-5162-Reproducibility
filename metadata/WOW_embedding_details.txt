@@ -1,0 +1,197 @@
+﻿
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\cost_model_config.cpp:3:#include <vector>
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\cost_model_config.cpp:4:#include "wavelets.h"
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\cost_model_config.cpp:5:#include "exception.hpp"
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\cost_model_config.cpp:6:#include "mat2D.h"
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\cost_model_config.cpp:7:
+> external\stego\WOW_windows_vc_2010_v10\WOW_src\cost_model_config.cpp:8:cost_model_config::cost_model_config(float pay
+load, bool verbose, float p, int waveletNumber, unsigned int stc_constr_height, int randSeed) : base_cost_model_config(
+payload, verbose, stc_constr_height, randSeed)
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\cost_model_config.cpp:9:{
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\cost_model_config.cpp:10:	this->p = p;
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\cost_model_config.cpp:11:	set_filters(waveletNumber);	
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\cost_model_config.cpp:12:}
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\cost_model_config.cpp:13:
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\cost_model_config.cpp:14:cost_model_config::~cost_model_config()
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\cost_model_config.cpp:15:{
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\cost_model_config.cpp:16:	delete this->lpdf;
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\cost_model_config.h:13:	mat2D<float> * hpdf;
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\cost_model_config.h:14:	mat2D<float> * Tlpdf;
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\cost_model_config.h:15:	mat2D<float> * Thpdf;
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\cost_model_config.h:16:	int padsize;
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\cost_model_config.h:17:
+> external\stego\WOW_windows_vc_2010_v10\WOW_src\cost_model_config.h:18:	cost_model_config(float payload, bool verbose,
+ float p, int wavelet, unsigned int stc_constr_height, int randSeed);
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\cost_model_config.h:19:	~cost_model_config();
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\cost_model_config.h:20:
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\cost_model_config.h:21:private:
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\cost_model_config.h:22:	void set_filters(int wavelet);
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\cost_model_config.h:23:};
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\cost_model_config.h:24:#endif
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:37:{
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:38:	try { 
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:39:		std::string iDir, oDir;
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:40:		float payload;
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:41:		bool verbose = false;
+> external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:42:		unsigned int stc_constr_height = 0;
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:43:		float p_holder;
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:44:		int wavelet;
+> external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:45:		int randSeed;
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:46:
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:47:		po::variables_map vm;
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:48:		std::vector< std::string > images;
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:49:
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:50:        po::options_description desc("Allowed options");
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:51:        desc.add_options()
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:52:            ("help", "produce help message")
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:53:            ("input-dir,I",				po::value<std::string>(&iDir
+),									"directory with the cover images")
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:55:			("output-dir,O",			po::value<std::string>(&oDir),							
+		"directory to output stego images")
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:56:            ("payload,a",				po::value<float>(&payload),			
+							"payload to embed in bits per non-zero AC DCT coefficient")
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:57:			("verbose,v",				po::bool_switch(&verbose),										"pr
+int out verbose messages")
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:58:		    ("holder_p,p",				po::value<float>(&p_holder)->defaul
+t_value(-1),					"Holder norm parameter 'p' (default = -1)")
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:59:			("wavelet,w",				po::value<int>(&wavelet)->default_value
+(1),						"Wavelet filter: 1=daubechies 8")
+> external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:60:			("STC-height,h",			po::value<unsigned int>(&stc_constr_h
+eight)->default_value(0),	"0=simulate emb. on bound, >0 constraint height of STC, try 7-12")
+> external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:61:			("random-seed,r",			po::value<int>(&randSeed)->default_v
+alue(1),					"default=0 (every time different)")
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:62:            ;
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:63:
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:64:        po::positional_options_description p;
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:65:
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:66:        po::store(po::command_line_parser(argc,argv).option
+s(desc).positional(p).run(), vm);
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:67:        po::notify(vm);
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:68:
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:69:        if (vm.count("help"))  { printInfo(); std::cout << 
+desc << "\n"; return 1; }
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:85:        if (verbose) {
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:86:            std::cout << "# WOW DISTORTION EMBEDDING SIMULA
+TOR" << std::endl;
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:87:			if (vm.count("input-dir")) std::cout << "# input directo
+ry = " << iDir << std::endl;
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:88:            std::cout << "# output directory = " << oDir <<
+ std::endl;
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:89:            std::cout << "# running payload-limited sender 
+with alpha = " << payload << std::endl;
+> external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:90:            if (stc_constr_height==0)
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:91:                std::cout << "# simulating embedding as if 
+the best coding scheme is available" << std::endl;
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:92:            else
+> external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:93:                std::cout << "# using STCs with constraint 
+height h=" << stc_constr_height << std::endl;
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:94:            std::cout << ")" << std::endl;
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:95:            std::cout << std::endl;
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:96:            std::cout << "#file name     seed            si
+ze          rel. payload     rel. distortion  ";
+> external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:97:			if (stc_constr_height>0) std::cout << "coding loss      
+# stc emb trials";
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:98:			std::cout << std::endl;
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:99:        }
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:100:
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:101:		clock_t begin=clock();
+> external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:102:		cost_model_config *config = new cost_model_config(payloa
+d, verbose, p_holder, wavelet, stc_constr_height, randSeed);
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:103:		
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:104:		for (int imageIndex=0; imageIndex<(int)images.size(); im
+ageIndex++)
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:105:		{
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:106:            fs::path coverPath(images[imageIndex]);
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:107:            fs::path stegoPath(fs::path(oDir) / fs::path(i
+mages[imageIndex]).filename());
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:108:
+> external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:109:			if (verbose) std::cout << std::left << std::setw( 15 ) 
+<< coverPath.filename().string() << std::left << std::setw( 15 ) << randSeed;
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:110:
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:111:			// Load cover
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:112:			mat2D<int> *cover = Load_Image(images[imageIndex], conf
+ig);
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:113:            if ( verbose ) std::cout << std::right << std:
+:setw( 4 ) << cover->cols << "x" << std::left << std::setw( 10 )
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:114:                    << cover->rows << std::flush;
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:115:
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:116:			base_cost_model * model = (base_cost_model *)new cost_m
+odel(cover, config);
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:117:
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:127:
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:128:			if (verbose)
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:129:			{
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:130:				std::cout	<< std::left << std::setw( 17 ) << alpha_out
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:131:							<< std::left << std::setw( 17 ) << distortion / (co
+ver->cols * cover->rows);
+> external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:132:				if (stc_constr_height>0)
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:133:					std::cout	<< std::left << std::setw( 17 ) << coding_l
+oss_out
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:134:								<< std::left << std::setw( 17 ) << stc_trials_used
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:135:								<< std::endl << std::flush;
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:136:				std::cout << std::endl;
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:137:			}
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:138:
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:139:			delete cover;
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW.cpp:140:			delete stego;
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:22:	const mat::mxArray *mat_cover;
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:23:
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:24:	// Default config
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:25:	float c_payload;
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:26:	float c_p = -1;
+> external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:27:	int c_randSeed = 0;
+> external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:28:	unsigned int c_stc_constr_height = 0;
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:29:
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:30:	if ((nrhs != 2) && (nrhs != 3))
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:31:		mat::mexErrMsgTxt ("Two or three inputs are requir
+ed.\n2 inputs - [image matrix (uint8)] [payload (single)] \n3 inputs - [image matrix (uint8)] [payload (single)] [struc
+t config]");
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:32:
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:33:	if  (mat::mxIsClass(prhs[0], "uint8"))
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:34:		mat_cover = prhs[0];
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:35:	else
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:36:		mat::mexErrMsgTxt ("The first input (cover image) 
+must be a 'uint8' matrix.");
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:56:			// if every field is scalar
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:57:			if (strcmp(fieldName, "p") == 0)
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:58:				if (mat::mxIsClass(fieldContent, "single")) c_p 
+= (float)mat::mxGetScalar(fieldContent);
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:59:				else mat::mexErrMsgTxt ("'config.p' must be of t
+ype 'single'");
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:60:			if (strcmp(fieldName, "STC_h") == 0)
+> external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:61:				if (mat::mxIsClass(fieldContent, "uint32")) c_st
+c_constr_height = (unsigned int)mat::mxGetScalar(fieldContent);
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:62:				else mat::mexErrMsgTxt ("'config.STC_h' must be 
+of type 'uint32'");
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:63:			if (strcmp(fieldName, "seed") == 0)
+> external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:64:				if (mat::mxIsClass(fieldContent, "int32")) c_ran
+dSeed = (int)mat::mxGetScalar(fieldContent);
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:65:				else mat::mexErrMsgTxt ("'config.seed' must be o
+f type 'int32'");
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:66:		}
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:67:	}
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:68:
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:69:	// create C cover matrix
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:70:	int rows = (int)mat::mxGetM(mat_cover);
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:71:	int cols = (int)mat::mxGetN(mat_cover);
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:72:	mat2D<int> *c_cover = new mat2D<int>(rows, cols);
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:79:			c_cover->Write(r, c, (int)cover_array[r+c*rows]);
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:80:		}
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:81:	}
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:82:	
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:83:	// Embedding
+> external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:84:	cost_model_config *c_config = new cost_model_config
+(c_payload, false, c_p, 1, c_stc_constr_height, c_randSeed);
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:85:	base_cost_model * model = (base_cost_model *)new co
+st_model(c_cover, c_config);
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:86:
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:87:	float c_alpha_out, c_coding_loss_out = 0, c_distort
+ion = 0;
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:88:	unsigned int c_stc_trials_used = 0;
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:89:	mat2D<int> * c_stego = model->Embed(c_alpha_out, c_
+coding_loss_out, c_stc_trials_used, c_distortion);
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:90:
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:91:	delete model;
+  external\stego\WOW_windows_vc_2010_v10\WOW_src\WOW_matlab.cpp:92:	delete c_config;
+
+
