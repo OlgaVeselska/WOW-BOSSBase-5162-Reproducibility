@@ -116,4 +116,130 @@ The analysis quantifies pixel modifications, including transitions from intensit
 
 ### Execution instructions (Windows PowerShell)
 
-The original cover and generated stego images must be available locally. The comparison script is intended to be
+The original cover and generated stego images must be available locally. The comparison script is intended to be executed from the BMHAT project root.
+
+**Note:** Replace the example Windows paths with the corresponding paths in your local BMHAT environment.
+
+```powershell
+cd C:\Users\ovese\BMHAT
+
+python -m pip install numpy Pillow
+
+python scripts/compare_cover_stego.py --cover "C:\Users\ovese\BMHAT\data\raw\BOSSBase_1.01\cover\5162.pgm" --stego "C:\Users\ovese\BMHAT\data\stego\WOW\0.2\5162.pgm"
+```
+
+### Verified results
+
+The pixel-comparison statistics are provided in:
+
+`results/WOW_5162_cover_stego_pixel_comparison.csv`
+
+The analysis confirmed:
+
+| Metric | Value |
+|---|---:|
+| Image dimensions | 512 × 512 |
+| Modified pixels | 13,010 |
+| Unchanged pixels | 249,134 |
+| Transitions from intensity 0 to 255 | 1,936 |
+
+The observed `zero_to_255` transitions are directly measured pixel changes. They do not, by themselves, establish the precise arithmetic mechanism responsible for these transitions.
+
+### SHA-256 verification
+
+**Original cover image:**
+
+`c7b1bf90db3896b1a08610b01d61239148c2e110fc9b54dd0627da4718804efb`
+
+**WOW stego image (requested payload 0.2 bpp):**
+
+`fc377f6957bf643bc04b96aff7325416171a3691c89e163644bd2d888243e6d8`
+
+These checksums enable verification of the exact input and output files used in the experiment.
+
+## 6. Verified deterministic reproduction of image 5162
+
+A controlled rerun of the WOW Windows executable was performed using the following configuration:
+
+| Parameter | Value |
+|---|---|
+| Cover image | `5162.pgm` |
+| Image dimensions | 512 × 512 |
+| Requested payload | `0.2` bpp |
+| Random seed | `20265162` |
+| Embedding mode | Simulated embedding (`-h 0`) |
+| Payload argument | `-a 0.2` |
+| Additional arguments | `-p -1 -w 1` |
+
+### Reproduction command (Windows PowerShell)
+
+Run the following commands from the original BMHAT project root:
+
+```powershell
+New-Item -ItemType Directory -Force "results\wow_5162_reproduction" | Out-Null
+
+& "external\stego\WOW_windows_vc_2010_v10\executable\WOW.exe" `
+  -v `
+  -i "data\raw\BOSSBase_1.01\cover\5162.pgm" `
+  -O "results\wow_5162_reproduction" `
+  -a 0.2 `
+  -p -1 `
+  -w 1 `
+  -h 0 `
+  -r 20265162
+```
+
+### Observed executable output
+
+```text
+# WOW DISTORTION EMBEDDING SIMULATOR
+# output directory = results\wow_5162_reproduction
+# running payload-limited sender with alpha = 0.2
+# simulating embedding as if the best coding scheme is available
+#file name     seed            size          rel. payload     rel. distortion
+5162.pgm       20265162        512x512       0.201116         1.43674e+008
+Time elapsed: 1.133 s
+```
+
+The executable reported a relative payload of `0.201116`, which is distinct from the requested value of `0.2` bpp.
+
+### Byte-for-byte reproduction
+
+The original and regenerated stego images have the same SHA-256 checksum:
+
+`FC377F6957BF643BC04B96AFF7325416171A3691C89E163644BD2D888243E6D8`
+
+This establishes byte-for-byte reproduction of the original stego file under the verified local configuration.
+
+### Provenance and limitations
+
+The original generation log was not retained. Nevertheless, a controlled rerun using the documented configuration reproduced the original stego image byte-for-byte.
+
+The experiment used simulated embedding (`-h 0`), not actual syndrome-trellis coding (STC).
+
+The confirmed reproduction applies to the specified executable and local environment. Independent reproduction on a different machine has not yet been demonstrated.
+
+Further details are provided in [`metadata/REPRODUCTION_5162.md`](metadata/REPRODUCTION_5162.md).
+
+## 7. Data availability
+
+The repository is publicly available at:
+
+https://github.com/OlgaVeselska/WOW-BOSSBase-5162-Reproducibility
+
+It contains diagnostic scripts, numerical audit results, pixel-comparison statistics, and experimental documentation.
+
+BOSSBase cover and stego images, the original WOW executable, and third-party source code are **not redistributed**.
+
+Researchers must obtain the necessary external resources independently and comply with their respective licensing and distribution conditions.
+
+No DOI has been assigned to this repository.
+
+## 8. Remaining reproducibility and documentation tasks
+
+1. Record the exact Python environment and dependency versions.
+2. Test the scripts from a fresh repository checkout using legitimately obtained BOSSBase data.
+3. Review redistribution rights for third-party code and derived outputs.
+4. Add an appropriate license for original scripts after author approval.
+
+The controlled local reproduction of image 5162 has been completed and verified using SHA-256 checksums.
